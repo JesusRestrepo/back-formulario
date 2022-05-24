@@ -1,4 +1,11 @@
-import sql from 'mssql'
+const sql = require ('mssql');
+const express = require('express');
+const Cors = require('cors')
+
+const app = express();
+
+app.use(express.json());
+app.use(Cors());
 
 const sqlConfig = {
     user: process.env.DB_USER,
@@ -26,3 +33,36 @@ async () => {
         // ... error checks
     }
 }
+
+app.post('/pilotos', (req, res) => {
+  console.log(req.body);
+});
+
+app.post('/miembros', (req, res) => {
+  console.log(req.body);
+});
+
+app.post('/tipo-vuelo', (req, res) => {
+  console.log(req.body);
+});
+
+app.post('/fecha', (req, res) => {
+  console.log(req.body);
+});
+
+app.post('/base', (req, res) => {
+  console.log(req.body);
+});
+
+app.post('/aviones', (req, res) => {
+  console.log(req.body);
+});
+
+const main = () => {
+  const port =  5000;
+  return app.listen(port, () => {
+    console.log('Conexion exitosa');
+  });
+};
+
+main();
